@@ -1,10 +1,10 @@
-# 🏥 Hospital Management & Patient Analytics System (SQL Project)
+# Hospital Management & Patient Analytics System (SQL Project)
 
 A database-driven system designed to efficiently manage hospital records and perform analytical queries to extract meaningful insights about patients, doctors, and treatments.
 
 ---
 
-## 🚀 Features
+## Features
 
 -  Structured database design with multiple tables
 -  Relationship mapping using foreign keys
@@ -20,7 +20,7 @@ A database-driven system designed to efficiently manage hospital records and per
 
 ##  Database Schema
 
-### 🔹 Tables
+### Tables
 
 #### 1. Patients
 - `patient_id` (Primary Key)
@@ -61,9 +61,9 @@ A database-driven system designed to efficiently manage hospital records and per
 
 ---
 
-## 📊 Key Queries
+## Key Queries
 
-### 🔥 1. Most Consulted Doctors
+### 1. Most Consulted Doctors
 SELECT d.name, COUNT(a.appointment_id) AS total_visits
 FROM Doctors d
 JOIN Appointments a ON d.doctor_id = a.doctor_id
@@ -75,7 +75,7 @@ ORDER BY total_visits DESC;
 
 ---
 
-### 💰 2. Monthly Revenue
+### 2. Monthly Revenue
 SELECT DATE_FORMAT(treatment_date, '%Y-%m') AS month,
 SUM(cost) AS total_revenue
 FROM Treatments
@@ -86,7 +86,7 @@ GROUP BY month;
 
 ---
 
-### 🦠 3. Most Common Diseases
+### 3. Most Common Diseases
 SELECT diagnosis, COUNT(*) AS frequency
 FROM Treatments
 GROUP BY diagnosis
@@ -96,7 +96,7 @@ ORDER BY frequency DESC;
 
 ---
 
-### 🔁 4. Patient Visit Frequency
+### 4. Patient Visit Frequency
 SELECT p.name, COUNT(a.appointment_id) AS visits
 FROM Patients p
 JOIN Appointments a ON p.patient_id = a.patient_id
@@ -106,7 +106,7 @@ GROUP BY p.name;
 
 ---
 
-### 👨‍⚕️ 5. Doctor Performance
+### 5. Doctor Performance
 SELECT d.name,
 COUNT(a.appointment_id) AS total_patients,
 SUM(t.cost) AS revenue_generated
@@ -121,27 +121,17 @@ ORDER BY revenue_generated DESC;
 
 ---
 
-## 📌 Sample Insights
+## Future Enhancements
 
-- Identify busiest doctors
-- Track hospital revenue trends
-- Analyze disease patterns
-- Monitor patient engagement
-- Evaluate doctor performance
-
----
-
-## 🚀 Future Enhancements
-
-- 💊 Add medicines and prescriptions table
-- 🧾 Billing system integration
-- 📊 Dashboard visualization (Power BI / Python)
-- 🔐 User authentication system
-- 🌐 Web-based interface
+- Add medicines and prescriptions table
+- Billing system integration
+- Dashboard visualization (Power BI / Python)
+- User authentication system
+- Web-based interface
 
 ---
 
-## 🎯 Use Case
+## Use Case
 
 Useful for:
 - Hospitals and clinics
